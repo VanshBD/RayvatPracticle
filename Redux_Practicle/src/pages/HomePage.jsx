@@ -35,7 +35,7 @@ const HomePage = () => {
   const paginatedProducts = filteredProducts.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
-    <Container sx={{ padding: 4, minHeight: '100vh', backgroundColor: '#f0f0f0' }}>
+    <Container sx={{ padding: 4, minHeight: '100vh'}}>
       <Box sx={{ mb: 4, textAlign: 'center' }}>
         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2, color: '#333' }}>
           Explore Our Products

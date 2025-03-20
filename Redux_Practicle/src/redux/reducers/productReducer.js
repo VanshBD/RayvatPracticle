@@ -1,21 +1,14 @@
-const defaultProductState = {
-  productList: [],
-  fetchError: null
+const initialState = {
+  products: [],
+  error: null
 };
 
-const productReducer = (state = defaultProductState, action) => {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_PRODUCTS_SUCCESS':
-      return { 
-        ...state, 
-        productList: action.payload, 
-        fetchError: null 
-      };
+      return { ...state, products: action.payload, error: null };
     case 'FETCH_PRODUCTS_FAILURE':
-      return { 
-        ...state, 
-        fetchError: action.payload 
-      };
+      return { ...state, error: action.payload };
     default:
       return state;
   }

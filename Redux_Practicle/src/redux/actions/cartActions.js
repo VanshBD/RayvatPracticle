@@ -4,7 +4,7 @@ export const addToCart = (product, onShowAlert) => (dispatch, getState) => {
   const token = localStorage.getItem('token'); 
 
   if (!token) {
-    onShowAlert('Access Denied: Please log in to add products to your cart.', 'warning');
+    onShowAlert('Please login to add items to your cart', 'warning');
     const navigate = useNavigate();
     navigate('/login');
     return;
@@ -19,13 +19,11 @@ export const addToCart = (product, onShowAlert) => (dispatch, getState) => {
       type: 'UPDATE_CART_QUANTITY',
       payload: { id: product.id, quantity: existingProduct.quantity + 1 }
     });
-    onShowAlert('Product quantity updated in your cart.', 'info');
   } else {
     dispatch({
       type: 'ADD_TO_CART',
       payload: { ...product, quantity: 1 }
     });
-    onShowAlert('Product added to your cart.', 'success');
   }
 };
 
